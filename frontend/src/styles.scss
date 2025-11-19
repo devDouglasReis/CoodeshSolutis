@@ -1,13 +1,17 @@
 @use "./colors.scss";
 
+body {
+  background-color: colors.$white-0;
+}
+
 body,
 h1,
 h2,
 h3,
 h4,
-p {
+p,
+ul {
   margin: 0;
-  background-color: colors.$white-0;
 }
 
 input,
@@ -19,4 +23,23 @@ select {
 * {
   box-sizing: border-box;
   font-family: Inter, sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 0.2rem;
+  height: 0.2rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #d4d5d9;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9c9ea9;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7f8492;
 }

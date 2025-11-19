@@ -1,0 +1,29 @@
+<div class="overlay-container">
+
+  <div class="dialog-container">
+    <header class="dialog-header">
+      <h2>{{ title }}</h2>
+
+      <button type="button"
+              (click)="onClose.emit()">
+        X
+      </button>
+    </header>
+
+    <main class="dialog-content">
+      <ng-content></ng-content>
+    </main>
+
+    <footer class="dialog-footer">
+      <app-button label="Cancelar"
+                  appearance="outline"
+                  (click)="onCancel.emit()">
+      </app-button>
+
+      <app-button label="Salvar"
+                  (click)="onConfirm.emit()">
+      </app-button>
+    </footer>
+  </div>
+
+</div>

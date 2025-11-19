@@ -1,11 +1,57 @@
+@use "../../../../../colors.scss";
+
 .container {
   height: 100vh;
-  padding: 24px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
 
   header {
-    height: 56px;
+    height: 3.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 1rem 0;
+  }
+
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: auto;
+
+    .list-container {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      overflow: auto;
+    }
+  }
+}
+
+ul {
+  padding: 0 0.5rem;
+  display: flex;
+  flex: 1;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    gap: 1rem;
+    list-style: none;
+
+    app-card section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      app-button {
+        width: 100%;
+      }
+    }
   }
 }
