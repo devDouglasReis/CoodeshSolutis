@@ -1,0 +1,11 @@
+.container {
+  height: 100vh;
+  padding: 24px;
+
+  header {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

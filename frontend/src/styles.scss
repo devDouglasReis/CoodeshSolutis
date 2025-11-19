@@ -1,0 +1,22 @@
+@use "./colors.scss";
+
+body,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  background-color: colors.$white-0;
+}
+
+input,
+button,
+select {
+  font: inherit;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Inter, sans-serif;
+}
