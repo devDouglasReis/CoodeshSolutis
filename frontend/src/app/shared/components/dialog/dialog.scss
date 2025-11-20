@@ -1,4 +1,4 @@
-@use "../../../../colors.scss";
+@use '../../../../colors.scss';
 
 .overlay-container {
   position: absolute;
@@ -13,16 +13,15 @@
   justify-content: center;
 
   .dialog-container {
+    background-color: colors.$grey-0;
     display: flex;
     flex-direction: column;
     width: 400px;
     height: 350px;
     border-radius: 0.5rem;
-    background-color: colors.$grey-0;
 
     .dialog-header,
     .dialog-footer {
-      background-color: colors.$white-0;
       height: 3.5rem;
       display: flex;
       align-items: center;
@@ -32,6 +31,7 @@
         border: none;
         border-radius: 0.25rem;
         color: colors.$primary-600;
+        background-color: colors.$white-0;
         padding: 0.25rem 0.5rem;
         cursor: pointer;
 

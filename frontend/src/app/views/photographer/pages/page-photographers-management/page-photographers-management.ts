@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PhotographerFacade } from '../../photographer-facade';
 
 @Component({
   selector: 'app-page-photographers-management',
@@ -6,10 +7,14 @@ import { Component } from '@angular/core';
   styleUrl: './page-photographers-management.scss',
   standalone: false,
 })
-export class PagePhotographersManagement {
-  public isDialogPhotographerOpen: boolean = false;
+export class PagePhotographersManagement implements OnInit {
+  public isDialogPhotographerOpen: boolean = true;
 
-  constructor() { }
+  constructor(private facade: PhotographerFacade) {}
+
+  ngOnInit(): void {
+    this.facade.list();
+  }
 
   openDialogPhotographer() {
     this.isDialogPhotographerOpen = true;
