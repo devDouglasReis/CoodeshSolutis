@@ -1,8 +1,8 @@
 <app-dialog
-  title="Adicionar um fotografo"
+  [title]="title"
   (onClose)="onClose.emit()"
   (onCancel)="onCancel.emit()"
-  (onConfirm)="onConfirm.emit()"
+  (onConfirm)="dialogMode === 'add' ? addPhotographer() : updatePhotographer()"
 >
   <app-form-photographer (formValue)="formPhotographerValue = $event"></app-form-photographer>
 </app-dialog>

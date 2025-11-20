@@ -1,5 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroupPhotographerValue } from '../../interfaces/form-group-photographer';
+import { PhotographerFacade } from '../../photographer-facade';
+import { PhotographerModel } from '../../models/photographer-model';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-dlg-photographer',
@@ -7,16 +10,61 @@ import { FormGroupPhotographerValue } from '../../interfaces/form-group-photogra
   styleUrl: './dlg-photographer.scss',
   standalone: false,
 })
-export class DlgPhotographer {
+export class DlgPhotographer implements OnInit {
   public formPhotographerValue: FormGroupPhotographerValue | undefined;
+  private selectedPhotographer: PhotographerModel | null = null;
+  public title: string = '';
+  constructor(private facade: PhotographerFacade) {}
+
+  @Input() dialogMode: 'add' | 'edit' = 'add';
 
   @Output() onClose: EventEmitter<void> = new EventEmitter();
   @Output() onCancel: EventEmitter<void> = new EventEmitter();
   @Output() onConfirm: EventEmitter<void> = new EventEmitter();
 
-  addPhotographer() {
+  ngOnInit(): void {
+    if (this.dialogMode === 'edit') {
+      this.facade.selectedPhotographer$.subscribe((photographer) => {
+        if (!photographer) return;
 
-    
+        this.selectedPhotographer = photographer;
+        this.formPhotographerValue = {
+          name: photographer.name,
+          camera: photographer.camera,
+          lens: photographer.lens,
+        };
+      });
+    }
+
+    this.title = this.dialogMode === 'add' ? 'Adicionar fotografo(a)' : 'Editar fotografo(a)';
+  }
+
+  async addPhotographer() {
+    if (!this.formPhotographerValue) {
+      return;
+    }
+
+    try {
+      await this.facade.create(this.formPhotographerValue);
+    } catch (error) {
+      console.error(error);
+      return;
+    }
+
+    this.onConfirm.emit();
+  }
+
+  async updatePhotographer() {
+    if (!this.formPhotographerValue || !this.selectedPhotographer) {
+      return;
+    }
+
+    try {
+      await this.facade.update(this.selectedPhotographer.id, this.formPhotographerValue);
+    } catch (error) {
+      console.error(error);
+      return;
+    }
 
     this.onConfirm.emit();
   }
