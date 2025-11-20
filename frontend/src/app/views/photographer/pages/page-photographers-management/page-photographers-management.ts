@@ -7,9 +7,7 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class PagePhotographersManagement {
-  public isDialogPhotographerOpen: boolean = false;
-
-  constructor() { }
+  public isDialogPhotographerOpen: boolean = true;
 
   openDialogPhotographer() {
     this.isDialogPhotographerOpen = true;
