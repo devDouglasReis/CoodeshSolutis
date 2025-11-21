@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import { photographerRoutes } from "./infrastructure/http/routes/photographer-routes";
+import { photographerRoutes } from "./infrastructure/routes/photographer-routes";
 
 const app = express();
 const port = 3000;
