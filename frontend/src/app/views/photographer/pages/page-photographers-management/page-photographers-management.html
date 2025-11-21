@@ -1,0 +1,32 @@
+@if (isDialogPhotographerOpen) {
+<app-dlg-photographer
+  [dialogMode]="!!selectedPhotographer ? 'edit' : 'add'"
+  (onClose)="closeDialogPhotographer()"
+  (onConfirm)="closeDialogPhotographer()"
+  (onCancel)="closeDialogPhotographer()">
+</app-dlg-photographer>
+}
+
+<div class="container">
+  <header>
+    <h1>Fotografos</h1>
+
+    <app-button label="Adicionar" (click)="openDialogPhotographer()"> </app-button>
+  </header>
+
+  <main class="content-container">
+    <div class="list-container">
+      <ul>
+        @for (photographer of facade.photographers$ | async; track $index) {
+        <li>
+          <app-card-photographer
+            [photographer]="photographer"
+            (editPhotographer)="editPhotographer($event)"
+            (deletePhotographer)="deletePhotographer($event)"
+          ></app-card-photographer>
+        </li>
+        }
+      </ul>
+    </div>
+  </main>
+</div>

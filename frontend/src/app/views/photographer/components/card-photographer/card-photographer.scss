@@ -1,0 +1,33 @@
+@use '../../../../../colors.scss';
+
+app-card {
+  width: 100%;
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    app-button {
+      width: 100%;
+    }
+  }
+
+  section:first-child {
+    gap: 1rem;
+  }
+}
+
+:host ::ng-deep app-card > div {
+  justify-content: space-between;
+}
+
+.text-grey-600 {
+  color: colors.$grey-600;
+}
+
+.equipments-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

@@ -1,0 +1,9 @@
+<app-dialog
+  [title]="title"
+  [disabledConfirmButton]="appForm.form.invalid"
+  (onClose)="onClose.emit()"
+  (onCancel)="onCancel.emit()"
+  (onConfirm)="dialogMode === 'add' ? addPhotographer() : updatePhotographer()"
+>
+  <app-form-photographer #appForm [(formValue)]="formPhotographerValue"></app-form-photographer>
+</app-dialog>

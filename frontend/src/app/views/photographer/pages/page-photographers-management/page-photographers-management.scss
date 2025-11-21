@@ -1,0 +1,68 @@
+@use '../../../../../colors.scss';
+
+.container {
+  height: 100vh;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+
+  header {
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+
+    h1 {
+      color: colors.$grey-600;
+    }
+  }
+
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: auto;
+
+    .list-container {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      overflow: auto;
+    }
+  }
+}
+
+ul {
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: start;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  li {
+    width: 100%;
+    list-style: none;
+
+    @media (min-width: 425px) {
+      max-width: calc(100% / 1 - 0.5rem);
+    }
+
+    @media (min-width: 768px) {
+      max-width: calc(100% / 2 - 0.5rem);
+    }
+
+    @media (min-width: 1024px) {
+      max-width: calc(100% / 3 - 0.5rem);
+    }
+
+    @media (min-width: 1280px) {
+      max-width: calc(100% / 4 - 0.5rem);
+    }
+
+    app-card-photographer {
+      width: 100%;
+    }
+  }
+}

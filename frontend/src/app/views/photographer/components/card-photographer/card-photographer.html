@@ -1,0 +1,23 @@
+<app-card>
+  <section>
+    <strong> {{ photographer.name }} </strong>
+
+    <div class="equipments-container">
+      <small class="text-grey-600">Equipments</small>
+      <p>{{ photographer.camera }} {{ !!photographer.lens ? ' | ' + photographer.lens : '' }}</p>
+    </div>
+  </section>
+
+  <section>
+    <app-button
+      label="Editar"
+      appearance="outline"
+      (click)="editPhotographer.emit(photographer.id)"
+    ></app-button>
+    <app-button
+      label="Deletar"
+      appearance="danger"
+      (click)="deletePhotographer.emit(photographer.id)"
+    ></app-button>
+  </section>
+</app-card>

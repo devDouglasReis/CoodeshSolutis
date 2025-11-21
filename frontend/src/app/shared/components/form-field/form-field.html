@@ -1,0 +1,16 @@
+<div class="form-field-container">
+  <label [for]="id">
+    {{ label }}
+
+    @if(isRequired){
+    <span danger> * </span>
+    }
+  </label>
+  <input
+    [id]="id"
+    [type]="type"
+    [formControl]="control"
+    [placeholder]="placeholder"
+    [attr.danger]="control.invalid && control.touched ? '' : null"
+  />
+</div>
