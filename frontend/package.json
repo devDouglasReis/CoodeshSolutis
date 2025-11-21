@@ -1,5 +1,5 @@
 {
-  "name": "fe",
+  "name": "PhotoManager",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

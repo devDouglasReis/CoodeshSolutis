@@ -1,26 +1,67 @@
-# Project Empty Template
+# PhotoManager - Sistema de Gerenciamento de Fotógrafos
 
-Este é um repositório de exemplo para você começar a desenvolver a questão, leia com atenção os requisitos do enunciado da questão na plataforma e seguia as boas práticas sobre como utilizar este repositório.
+Um sistema para gerenciamento de fotógrafos, permitindo cadastro, edição, visualização e exclusão de perfis. O projeto foi desenvolvido utilizando uma arquitetura moderna com frontend em Angular e backend em Node.js.
 
+## Tecnologias utilizadas
 
-## Readme do Repositório
+### Frontend
 
-- Deve conter o título do projeto
-- Uma descrição sobre o projeto em frase
-- Deve conter uma lista com linguagem, framework e/ou tecnologias usadas
-- Como instalar e usar o projeto (instruções)
-- Não esqueça o [.gitignore](https://www.toptal.com/developers/gitignore)
-- Se está usando github pessoal, referencie que é um challenge by coodesh:  
+- **Angular** (v20.3.0)
+- **TypeScript**
+- **RxJS**
+- **SCSS**
 
->  This is a challenge by [Coodesh](https://coodesh.com/)
+### Backend
 
-## Finalização e Instruções para a Apresentação
+- **Node.js**
+- **Express**
+- **TypeScript**
 
-1. Adicione o link do repositório com a sua solução na questão na plataforma
-2. Verifique se o Readme está bom e faça o commit final em seu repositório;
-3. Envie e aguarde as instruções para seguir. Caso o teste tenha apresentação de vídeo, dentro da tela de entrega será possível gravar após adicionar o link do repositório. Sucesso e boa sorte. =)
+## Como instalar e usar
 
+### Pré-requisitos
 
-## Suporte
+- Node.js instalado
+- Gerenciador de pacotes (npm, yarn, etc)
 
-Para tirar dúvidas sobre o processo envie uma mensagem diretamente a um especialista no chat da plataforma. 
+### Instalação
+
+1. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/devDouglasReis/CoodeshSolutis.git
+   cd CoodeshSolutis
+   ```
+
+2. Instale as dependências do Backend:
+
+   ```bash
+   cd backend
+   npm install
+   ```
+
+3. Instale as dependências do Frontend:
+   ```bash
+   cd ../frontend
+   npm install
+   ```
+
+### Executando o Projeto
+
+1. Inicie o servidor Backend:
+
+   ```bash
+   cd backend
+   npm start
+   ```
+
+   O servidor iniciará na porta padrão (verifique o console).
+
+2. Inicie a aplicação Frontend:
+   ```bash
+   cd frontend
+   npm start
+   ```
+   Acesse a aplicação no navegador em `http://localhost:4200`.
+
+> This is a challenge by [Coodesh](https://coodesh.com/)

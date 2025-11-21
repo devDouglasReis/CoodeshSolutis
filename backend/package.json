@@ -1,7 +1,7 @@
 {
-  "name": "backend",
+  "name": "PhotoManagerApi",
   "version": "1.0.0",
-  "description": "Photographer API",
+  "description": "PhotoManager API",
   "main": "dist/main.js",
   "scripts": {
     "start": "ts-node src/main.ts",
