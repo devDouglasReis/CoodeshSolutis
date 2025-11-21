@@ -1,4 +1,4 @@
-@use "../../../../../colors.scss";
+@use '../../../../../colors.scss';
 
 .container {
   height: 100vh;
@@ -12,6 +12,10 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem 0;
+
+    h1 {
+      color: colors.$grey-600;
+    }
   }
 
   .content-container {
@@ -21,6 +25,7 @@
     overflow: auto;
 
     .list-container {
+      margin-top: 1rem;
       display: flex;
       flex-direction: column;
       flex: 1;
@@ -32,26 +37,32 @@
 ul {
   padding: 0 0.5rem;
   display: flex;
-  flex: 1;
-  gap: 1.5rem;
+  align-items: start;
+  gap: 1rem;
   flex-wrap: wrap;
 
   li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex: 1;
-    gap: 1rem;
+    @media (min-width: 425px) {
+      max-width: calc(100% / 1 - 1rem);
+    }
+
+    @media (min-width: 768px) {
+      max-width: calc(100% / 2 - 1rem);
+    }
+
+    @media (min-width: 1024px) {
+      max-width: calc(100% / 3 - 1rem);
+    }
+
+    @media (min-width: 1280px) {
+      max-width: calc(100% / 4 - 1rem);
+    }
+
+    width: 100%;
     list-style: none;
 
-    app-card section {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-
-      app-button {
-        width: 100%;
-      }
+    app-card-photographer {
+      width: 100%;
     }
   }
 }

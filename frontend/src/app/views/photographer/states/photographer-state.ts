@@ -5,4 +5,12 @@ import { PhotographerModel } from '../models/photographer-model';
 @Injectable({
   providedIn: 'root',
 })
-export class PhotographerState extends GenericState<PhotographerModel> {}
+export class PhotographerState extends GenericState<PhotographerModel> {
+  constructor() {
+    super();
+  }
+
+  override select(id: number | null) {
+    super.select(id, 'id');
+  }
+}

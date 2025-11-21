@@ -1,0 +1,23 @@
+@use '../../../../../colors.scss';
+
+app-card {
+  width: 100%;
+}
+
+:host ::ng-deep app-card > div {
+  justify-content: space-between;
+}
+
+app-card section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  app-button {
+    width: 100%;
+  }
+}
+
+.text-grey-600 {
+  color: colors.$grey-600;
+}

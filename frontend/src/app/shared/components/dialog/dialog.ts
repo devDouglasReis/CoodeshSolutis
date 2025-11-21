@@ -5,10 +5,11 @@ import { Button } from '../button/button';
   selector: 'app-dialog',
   templateUrl: './dialog.html',
   styleUrl: './dialog.scss',
-  imports: [Button]
+  imports: [Button],
 })
 export class Dialog {
   @Input({ required: true }) title: string = '';
+  @Input() disabledConfirmButton: boolean = false;
 
   @Output() onClose: EventEmitter<void> = new EventEmitter();
   @Output() onCancel: EventEmitter<void> = new EventEmitter();

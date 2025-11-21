@@ -1,8 +1,9 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, DestroyRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroupPhotographerValue } from '../../interfaces/form-group-photographer';
 import { PhotographerFacade } from '../../photographer-facade';
 import { PhotographerModel } from '../../models/photographer-model';
-import { filter } from 'rxjs';
+import { filter, pipe } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-dlg-photographer',
@@ -14,7 +15,7 @@ export class DlgPhotographer implements OnInit {
   public formPhotographerValue: FormGroupPhotographerValue | undefined;
   private selectedPhotographer: PhotographerModel | null = null;
   public title: string = '';
-  constructor(private facade: PhotographerFacade) {}
+  constructor(private facade: PhotographerFacade, private destroyRef: DestroyRef) {}
 
   @Input() dialogMode: 'add' | 'edit' = 'add';
 
@@ -24,16 +25,18 @@ export class DlgPhotographer implements OnInit {
 
   ngOnInit(): void {
     if (this.dialogMode === 'edit') {
-      this.facade.selectedPhotographer$.subscribe((photographer) => {
-        if (!photographer) return;
+      this.facade.selectedPhotographer$
+        .pipe(takeUntilDestroyed(this.destroyRef))
+        .subscribe((photographer) => {
+          this.selectedPhotographer = photographer;
+          if (!photographer) return;
 
-        this.selectedPhotographer = photographer;
-        this.formPhotographerValue = {
-          name: photographer.name,
-          camera: photographer.camera,
-          lens: photographer.lens,
-        };
-      });
+          this.formPhotographerValue = {
+            name: photographer.name,
+            camera: photographer.camera,
+            lens: photographer.lens,
+          };
+        });
     }
 
     this.title = this.dialogMode === 'add' ? 'Adicionar fotografo(a)' : 'Editar fotografo(a)';

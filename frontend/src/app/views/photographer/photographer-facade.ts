@@ -57,4 +57,8 @@ export class PhotographerFacade {
       console.error(error);
     }
   }
+
+  selectPhotographer(id: number | null) {
+    this.photographerState.select(id);
+  }
 }

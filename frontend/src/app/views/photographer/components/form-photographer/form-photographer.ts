@@ -1,4 +1,4 @@
-import { Component, DestroyRef, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, DestroyRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import {
   FormGroupPhotographer,
@@ -15,7 +15,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 export class FormPhotographer implements OnInit {
   public form: FormGroupPhotographer;
 
-  @Output() formValue: EventEmitter<FormGroupPhotographerValue> =
+  @Input() formValue?: FormGroupPhotographerValue;
+  @Output() formValueChange: EventEmitter<FormGroupPhotographerValue> =
     new EventEmitter<FormGroupPhotographerValue>();
 
   constructor(private fb: FormBuilder, private destroyRef: DestroyRef) {
@@ -32,7 +33,9 @@ export class FormPhotographer implements OnInit {
 
   ngOnInit(): void {
     this.form.valueChanges.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((value) => {
-      this.formValue.emit(value as FormGroupPhotographerValue);
+      this.formValueChange.emit(value as FormGroupPhotographerValue);
     });
+
+    if (this.formValue) this.form.patchValue(this.formValue);
   }
 }
