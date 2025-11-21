@@ -2,20 +2,20 @@
   <section>
     <strong> {{ photographer.name }} </strong>
 
-    <div>
-      <p class="text-grey-600">Equipments</p>
-      <p>{{ photographer.camera }} | {{ photographer.lens }}</p>
+    <div class="equipments-container">
+      <small class="text-grey-600">Equipments</small>
+      <p>{{ photographer.camera }} {{ !!photographer.lens ? ' | ' + photographer.lens : '' }}</p>
     </div>
   </section>
 
   <section>
     <app-button
-      label="Edit"
+      label="Editar"
       appearance="outline"
       (click)="editPhotographer.emit(photographer.id)"
     ></app-button>
     <app-button
-      label="Delete"
+      label="Deletar"
       appearance="danger"
       (click)="deletePhotographer.emit(photographer.id)"
     ></app-button>

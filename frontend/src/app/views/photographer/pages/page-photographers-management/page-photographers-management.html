@@ -3,7 +3,8 @@
   [dialogMode]="!!selectedPhotographer ? 'edit' : 'add'"
   (onClose)="closeDialogPhotographer()"
   (onConfirm)="closeDialogPhotographer()"
-></app-dlg-photographer>
+  (onCancel)="closeDialogPhotographer()">
+</app-dlg-photographer>
 }
 
 <div class="container">
