@@ -1,4 +1,4 @@
-@use "../../../../colors.scss";
+@use '../../../../colors.scss';
 
 button {
   width: 100%;
@@ -8,12 +8,9 @@ button {
   height: 40px;
   background-color: colors.$primary-500;
   cursor: pointer;
-  transition: colors ease-in-out 1s;
-  box-shadow:
-    0 1px 3px 0 rgb(0 0 0 / 0.1),
-    0 1px 2px -1px rgb(0 0 0 / 0.1);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
 
-  &[appearance="primary"] {
+  &[appearance='primary'] {
     color: colors.$grey-0;
 
     &:hover:not(:disabled) {
@@ -21,7 +18,7 @@ button {
     }
   }
 
-  &[appearance="danger"] {
+  &[appearance='danger'] {
     color: colors.$grey-0;
     background-color: colors.$red-500;
 
@@ -30,13 +27,13 @@ button {
     }
   }
 
-  &[appearance="outline"] {
+  &[appearance='outline'] {
     color: colors.$primary-600;
     background-color: colors.$grey-0;
     border: 1px solid colors.$primary-600;
 
     &:hover:not(:disabled) {
-      background-color: colors.$primary-50;
+      background-color: colors.$primary-0;
     }
   }
 

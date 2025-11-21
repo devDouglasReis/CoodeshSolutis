@@ -10,6 +10,4 @@ export class Button {
   @Input({ required: true }) label: string = '';
   @Input() appearance: 'outline' | 'danger' | 'primary' = 'primary';
   @Input() disabled: boolean = false;
-
-  @Output() click: EventEmitter<void> = new EventEmitter();
 }
